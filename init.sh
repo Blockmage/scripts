@@ -65,7 +65,7 @@
 #
 # ---------------------------------- License -----------------------------------
 #
-#   Copyright 2024 Alchemyst0x, Blockmage Ltd, and contributors.
+#   Copyright 2024 Alchemyst0x, Blockmage Ltd, and Contributors.
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -187,6 +187,7 @@ source_files() {
 }
 
 # --------------------------------- Main Logic ---------------------------------
+
 if [[ "${CREATE_INIT_D:-}" == 1 ]]; then mkdir -p "$INIT_D"; fi
 if [[ -d "$INIT_D" ]]; then chownmod "$INIT_D"; fi
 
