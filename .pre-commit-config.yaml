@@ -1,0 +1,71 @@
+default_language_version:
+  python: '3.12'
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-ast
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: check-yaml
+      - id: debug-statements
+      - id: detect-private-key
+      - id: double-quote-string-fixer
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+      - id: requirements-txt-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+        args: [--fix=auto]
+
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v3.6.0
+    hooks:
+      - id: conventional-pre-commit
+        stages: [commit-msg]
+
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.7.3
+    hooks:
+      - id: ruff
+        types_or: [python, pyi]
+        args: [--config, .ruff.toml, --fix]
+      - id: ruff-format
+        types_or: [python, pyi]
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.3.0
+    hooks:
+      - id: codespell
+
+  - repo: https://github.com/lorenzwalthert/gitignore-tidy
+    rev: 0.1.2
+    hooks:
+      - id: tidy-gitignore
+
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        exclude: dist|target|public|.*\.lock\..*|.*example.*|.*\.agebox
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v4.0.0-alpha.8
+    hooks:
+      - id: prettier
+        exclude: dist|target|public|.*\.lock\..*|.*example.*
+        types_or:
+          - javascript
+          - json
+          - jsx
+          - svg
+          - ts
+          - tsx
+          - yaml
+          - css
+          - markdown
+          - mdx
